@@ -33,6 +33,9 @@ const sketch = () => {
   const points = createGrid().filter(() => random.value() > .5);
   const margin = 00;
 
+  const features = ['.....','.', '|','_',':','+','*'];
+  const feature = random.pick(features);
+
   return ({ context, width, height }) => {
     context.fillStyle = backgroundColor;
     context.fillRect(0, 0, width, height);
@@ -55,7 +58,8 @@ const sketch = () => {
       context.font = `${radius * width}px "Helvetica"`;
       context.translate(x,y);
       context.rotate(rotation);
-      context.fillText('|', 0, 0);
+      // context.fillText('|', 0, 0);
+      context.fillText(feature, 0, 0);
 
       context.restore();
     });
